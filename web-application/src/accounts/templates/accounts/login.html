@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+
+   body{
+    /*background-image:url("{% static 'img/signin.jpeg' %} ");*/
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-color: black;
+
+  }
+  
+
+  .form-control
+  {
+    background: transparent;
+    border-radius:0px;
+    border:0px;
+    border-bottom: 2px solid lightgreen;
+    font-size:21px;
+    margin-top: 35px;
+
+    padding: 0px;
+    color:white;
+    line-height: 2;
+
+    
+
+  }
+
+  .btn-info
+  {
+    margin-top: 20px;
+    margin-bottom: 90px;
+    font-size: 21px;
+    width:200px;
+    
+  }
+
+  .col-md-8
+  {
+    box-shadow: -1px 1px 50px 10px grey;
+    border-radius: 0px 100px 0px 100px;
+    padding-top:20px;
+    margin-top: 150px;
+    margin-bottom: 95px;
+
+    height: 470px;
+    background: rgba(0,0,0,0.73);
+
+    /*animation-name: SideLeft;
+    animation-duration: 2s;*/
+  }
+
+
+  .animated
+  {
+    animation-duration: 1.6s;
+  }
+
+  h5{
+    color:white;
+    position:absolute;
+    font-size: 300%;
+    margin-left: 30%;
+   
+  
+  
+  
+  letter-spacing: 2px;
+  font-weight: 100;
+  }
+
+
+  .fa-user-circle
+  {
+    font-size:50px;
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 3%;
+  }
+
+  @keyframes SideLeft {
+  0%{
+    opacity:0;
+    transform:translate3d(-50px,25px)
+    
+    
+    
+
+  }
+
+  
+
+  60%{
+    transform: translateX(-60px);
+
+
+  }
+  
+  100%{
+    opacity:1;
+    transform: translate3d(-50px,70px);
+
+  }
+
+
+  
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.4;
+}
+
+
+</style>
+  
+<video autoplay muted loop id="myVideo">
+  <source src="{% static 'img/lppy.mp4' %}" type="video/mp4">
+</video>
+<div class='text-center'>
+
+
+</div>
+<div class='container' align="center">
+      <div class='row'>
+        <div class='col'>
+        	<p>{{ content }}</p>
+            
+            <div class='col-md-8 col-lg-6 col-12 animated slideInLeft'>
+              <i class="fa fa-user-circle animated bounceInDown"></i>
+              <h5 align="center" class="">SIGN-IN</h5>
+              
+    <form method='POST'> {% csrf_token %}
+      {{ form }}
+      <hr>
+      <button type='submit' class='btn btn-info '>SUBMIT</button>
+    </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.za
+{
+  -webkit-animation: colorchange 5s ease infinite ;
+}
+
+@-webkit-keyframes colorchange {
+      0% {
+        
+        color: red;
+      }
+      
+      10% {
+        
+        color: gold;
+      }
+      
+      20% {
+        
+        color: lightblue;
+      }
+      
+      30% {
+        
+        color: black;
+      }
+      
+      40% {
+        
+        color: lightgreen;
+      }
+      
+      50% {
+        
+        color: black;
+      }
+      
+      60% {
+        
+        color: purple;
+      }
+      
+      70% {
+        
+        color: teal;
+      }
+      80% {
+     
+        color: black;
+      }
+      
+      90% {
+     
+        color: white;
+      }
+      
+      100% {
+        
+        color: orange;
+      }
+    }
+
+
+.zc
+{
+	margin-top:2%;
+	font-size:75px;
+	margin-left: 45%;
+	margin-bottom: 5%;
+	color:white;
+	 text-shadow: 2px 2px 0px rgba(255,0,255,0.3), 8px 12px 3px rgba(0,100,0,0.7);
+}
+
+.zfo
+  {
+    font-size:50px;
+    color:white;
+    
+    margin-top: 8%;
+    margin-left:18%;
+    letter-spacing: 70px;
+    -webkit-text-stroke: 0.8px black;
+    
+    text-align: center;
+  }
+
+  .zfo:hover
+  {
+    
+    
+    -webkit-text-stroke: 2px black;
+    transform:scale(1.4);
+    transition-duration: 0.7s;
+  }
+
+  h5
+  {
+  text-align: justify;
+  font: 100 85px/1.5 'Pacifico', Helvetica, sans-serif;
+  color: white;
+  text-shadow: 2px 2px 0px rgba(255,0,255,0.3), 8px 12px 3px rgba(0,100,0,0.7);
+  -webkit-text-stroke: 1px gold;
+  }
+
+
+  h6
+  {
+  
+  margin-top:7.5%;
+  font: 400 100px/2 'Arizonia', Helvetica, sans-serif;
+  font-size:55px;
+  text-align: center;
+  text-shadow: 2px 2px 0px rgba(255,0,255,0.3), 4px 4px 3px rgba(0,100,0,0.7);
+  letter-spacing: 3px;
+  -webkit-text-stroke: 0.5px red;
+
+  }
+
+  #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.1;
+}
+
+
+
+</style>
+
+<video autoplay muted loop id="myVideo">
+  <source src="{% static 'img/Tulum.mp4' %}" type="video/mp4">
+</video>
+
+
+<i class="fa fa-superpowers zc"></i>
+<!--<div class="col-6 mx-auto py-5 text-center">
+    <h4 class="display-2">
+        Thank you for your order!
+    </h4>
+</div>-->
+
+<h5 class="za"> Thank You For Your Orders!</h5>
+<h6>Email us At: zyx@gmail.com</h6>
+<a href="#"><i class="fa fa-twitter zfo"></i></a>
+<a href="#"><i class="fa fa-facebook-official zfo"></i></a>
+<a href="#"><i class="fa fa-pinterest zfo" aria-hidden="true"></i></a>
+<video autoplay muted loop id="myVideo">
+  <source src="{% static 'img/Tulum.mp4' %}" type="video/mp4">
+</video>
+{% endblock %}

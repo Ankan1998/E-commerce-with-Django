@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+
+
+
+<style type="text/css">
+
+  body {
+  background: linear-gradient(100deg, #1f0752, #8f0070, #30a6d5, #ffd00f);
+  background-size: 400% 400%;
+  animation: gradient 8s ease-out infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.fes
+{
+
+  font-family: 'Allan';
+  font-size:40px;
+  letter-spacing:3px;
+  color:lightblue;
+  -webkit-text-stroke: 0.1px white;
+
+}
+a
+{
+  color:lightblue;
+}
+
+.des
+{
+  font: 100 30px/1.5 'Pacifico', Helvetica, sans-serif;
+  color: lightgreen;
+  -webkit-text-stroke: 0.3px black;
+}
+h6
+{
+   color:yellow;
+  
+ font: 100 30px/1.5 'Pacifico', Helvetica, sans-serif;
+  font-size: 450%;
+  
+  /*left: 60%;
+  top: 67%;*/
+  margin-bottom: 5%;
+  /*transform: translate(-75%,-190%);*/
+  letter-spacing: 10px;
+  font-weight: 75;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3), 8px 8px 1px rgba(0,0,0,0.7);
+  -webkit-text-stroke: 1px white;
+}
+
+
+.btn-success
+{
+  margin-top:5%;
+  font-family: Allan;
+  letter-spacing: 2px;
+  border-radius: 20px;
+  font-size: 20px;
+  -webkit-text-stroke: 0.5px white;
+
+}
+
+.vb
+{
+  font: 100 50px/1.1  Comic sans-serif;
+  color: white;
+  background-color: black;
+  padding-left:3%;
+  text-align:center;
+  letter-spacing: 7px;
+  margin-left: 5%;
+  margin-top: 20%;
+   -webkit-text-stroke: 0.3px black;
+}
+
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.4;
+}
+
+.table
+{
+  background-color: black;
+  opacity:0.7;
+}
+</style>
+
+
+
+
+<video autoplay muted loop id="myVideo">
+  <source src="{% static 'img/apple.mp4' %}" type="video/mp4">
+</video>
+
+
+
+<h6><u>Your Cart</u></h6>
+
+{% if cart.products.exists %}
+<table class="table">
+  <thead>
+    <tr>
+      <th class="fes">#</th>
+      <th class="fes">Product Name</th>
+      <th class="fes">Product Price</th>
+    </tr>
+  </thead>
+  <tbody class="des">
+    {% for product in cart.products.all %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}.</th>
+      <td>
+        <a href='{{ product.get_absolute_url }}'>{{ product.title }}</a> 
+
+
+        {% include 'products/snippets/update-cart.html' with product=product cart=cart in_cart=True %}
+      </td>
+      <td>$ {{ product.price }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2"></td>
+      <td><b>Subtotal:</b> $ {{ cart.subtotal }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td><b>Total:</b> $ {{ cart.total }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td><a class='btn btn-success' href='{% url "cart:checkout" %}'>Checkout</a></td>
+    </tr>
+
+  </tbody>
+</table>
+
+{% else %}
+<p class='lead vb'> Sorry! Cart   is   empty</p>
+{% endif %}
+
+
+{% endblock %}

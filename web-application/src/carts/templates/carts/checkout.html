@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<style type="text/css">
+
+
+
+body{
+    background-image: url("{% static 'img/shirtim.jpg' %} ");
+    background-size:cover;
+    background-attachment:fixed;
+    /*background: linear-gradient(-120deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  animation: gradient 7s ease infinite;
+  background-size: 400% 400%;*/
+
+  }
+
+  .xcv
+  {
+    background: url("{% static 'img/shirtim.jpg' %} ");
+    background-size:75%;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 2px;
+    margin-top: 2.5%;
+    box-shadow: -1px 1px 50px 10px grey;
+
+
+
+  }
+
+  .dvd div
+  {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  }
+
+
+  .form-control
+  {
+    background: transparent;
+    border-radius:0px;
+    border:0px;
+    border-bottom: 1px solid lightgreen;
+    font-size:21px;
+    margin-top: 35px;
+    padding-bottom: -20px;
+
+    padding: 0px;
+    color:white;
+    line-height: 2;
+
+
+  }
+
+
+  h6{
+  color:lightgreen;
+  text-align: center;
+ 
+  font-size: 450%;
+  margin-left: 0%;
+  /*left: 60%;
+  top: 67%;*/
+  margin-top: 0px;
+  /*transform: translate(-75%,-190%);*/
+  letter-spacing: 2.5px;
+  font-weight: 75;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3), 4px 4px 1px rgba(0,0,0,0.7);
+
+  background: linear-gradient(100deg, #1f0752, #8f0070, #30a6d5, #ffd00f);
+  background-size: 400% 400%;
+  animation: gradient 8s ease-out infinite;
+  
+}
+
+  
+
+
+
+
+/*.col-md-6 
+  {
+    
+    border-radius: 0px 100px 0px 100px;
+    padding-top:20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    left:25%;
+
+
+    height: 710px;
+    background: rgba(0,0,0,0.9);
+  }*/
+.psc
+{
+  margin-left: 25%;
+
+
+}
+
+  /*.col-md-12 guest login page
+    {
+    box-shadow: -1px 1px 50px 10px grey;
+    border-radius: 1000px 1000px 1000px 1000px;
+    padding-top:20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+
+
+    height: 280px;
+    background: rgba(0,0,0,0.73);
+  }
+  */
+
+  h5{
+
+    
+    color:white;
+    position:absolute;
+    font-size: 300%;
+   
+  
+  
+  
+  letter-spacing: 2px;
+  font-weight: 100;
+  }
+
+
+
+ h4{
+    color:lightgreen;
+    position:relative;
+    font-size: 300%;
+   
+  
+  
+  
+  letter-spacing: 2px;
+  font-weight: 100;
+
+
+  display: block;
+  
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-bottom: 5px;
+  margin-left: 2%;
+  margin-right: 0;
+  
+
+  }
+
+
+.btn-success
+ {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 25px;
+    margin-left:40%;
+    width:200px;
+    font: 100 30px/1.5 'Pacifico', Helvetica, sans-serif;
+  color: lightblue;
+  padding: 3px -10px 3px -10px;
+  text-shadow: 1px 1px 1px rgba(255,0,255,0.3), 2px 2px 1px rgba(0,100,0,0.7);
+  text-align: center;
+  border-radius: 30px;
+  
+    
+  }
+
+.btn-default
+{
+  margin-top: 5px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    
+    width:200px;
+   
+  padding: 3px -10px 3px -10px;
+  
+  text-align: center;
+  border-radius: 30px;
+}
+
+p
+{
+  font: 200 35px/1.6 'Allan', Helvetica, sans-serif;
+  color: gold;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1), 3px 3px 1px rgba(0,0,0,0.5);
+  letter-spacing: 3px;
+  margin-top: 35px;
+  margin-bottom: 30px;
+  margin-left: 0%;
+  background: linear-gradient(60deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  animation: gradient 1s ease infinite;
+
+  text-align: center;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+
+  
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.1;
+
+
+
+
+</style>
+
+
+
+
+
+{% if not billing_profile %}
+    <div class='row text-center xcv dvd'>
+      <div>
+    <!--<div class='col-12 col-md-12'>
+        <h5 align="center">GUEST EMAIL</h5>
+        
+
+        {% url "guest_register" as guest_register_url %}
+        {% include 'accounts/snippets/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
+    </div> -->
+    <div class='col-12 col-md-6 col-sm-12 psc'>
+        <h5 class ="nb" align="center">SIGN-IN</h5>
+        
+        {% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri %}
+
+        <h4 align="center">OR</h4>
+        <br>
+        <p>
+        </p>
+
+        <h5 align="center">GUEST EMAIL</h5>
+        
+
+        {% url "guest_register" as guest_register_url %}
+        {% include 'accounts/snippets/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
+    </div>
+  </div>
+    
+
+    </div>
+
+{% else %}
+
+        {% if not object.shipping_address %}
+
+        
+
+
+         <div class='row'>
+            <div class='col-12'>
+                <p class='lead'>Shipping Address</p>
+                <hr/>
+            </div>
+            <div class='col-6'>
+
+
+
+
+                    {% url "checkout_address_create" as checkout_address_create %}
+                    {% include 'addresses/form.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='shipping' %}'
+
+
+
+             </div>
+         <div class='col-6'>
+            {% url 'checkout_address_reuse' as checkout_address_reuse %}
+            {% include 'addresses/prev_addresses.html' with address_qs=address_qs next_url=request.build_absolute_uri address_type='shipping' action_url=checkout_address_reuse %}
+            </div>
+        </div>
+
+
+        {% elif not object.billing_address %}
+        <div class='row'>
+            <div class='col-12'>
+                 <p class='lead'>Billing Address</p>
+                <hr/>
+            </div>
+            <div class='col-6'>
+
+            {% url "checkout_address_create" as checkout_address_create %}
+            {% include 'addresses/form.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='billing' %}
+            </div>
+              <div class='col-6'>
+                {% url 'checkout_address_reuse' as checkout_address_reuse %}
+             {% include 'addresses/prev_addresses.html' with address_qs=address_qs next_url=request.build_absolute_uri  address_type='billing' action_url=checkout_address_reuse %}
+         </div>
+
+
+        </div>
+        {% else %}
+
+            <h6>FINALIZE CHECKOUT</h6>
+            <p><u>Cart items</u> : {% for product in object.cart.products.all %}
+                {{ product }}
+                {% if not forloop.last%},
+                {% endif %}
+                {% endfor %}
+
+            </p>
+            <p><u>Shipping Address</u> : {{ object.shipping_address.get_address}}</p>
+            <p><u>Billling Address</u> : {{ object.billing_address.get_address}}</p>
+            <p><u>Cart Total</u> : $ {{ object.cart.total }}</p>
+            <p><u>Shipping Total</u> : $ {{ object.shipping_total }}</p>
+            <p><u>Order Total</u> : $ {{ object.total }}</p>
+            <form class='form' method='POST' action="">{% csrf_token %}
+                <button class="btn btn-success" type='submit'>Checkout</button>
+            </form>
+        {% endif %}
+{% endif %}
+
+
+
+{% endblock %}

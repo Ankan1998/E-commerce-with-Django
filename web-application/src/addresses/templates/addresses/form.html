@@ -1,0 +1,132 @@
+
+
+
+{% load static %}
+
+<style type="text/css">
+
+   body{
+    background-image:url("{% static 'img/xc.jpg' %} ");
+    background-size:cover;
+    background-attachment:fixed;
+
+
+  }
+  .form-control
+  {
+  	line-height:1.5;
+  	margin-top: 35px;
+  }
+  
+
+  /*.form-control
+  {
+    background: transparent;
+    
+    
+    border-bottom: 0.1px solid lightgreen;
+    font-size:18px;
+    margin-top: 35px;
+
+    padding: 0px;
+    color:white;
+    line-height: 1.8;
+
+  }*/
+
+  p
+  {
+  	color: brown;
+  	
+  	margin: -1000% 0 0 0;
+  }
+
+  .btn-warning
+  {
+    margin-top: 60px;
+    margin-bottom: 5px;
+    font-size: 21px;
+    width:200px;
+    
+  }
+
+  .col-md-12
+  {
+    /*box-shadow: -1px 1px 50px 10px grey;*/
+    /*border-radius: 0px 100px 0px 100px;*/
+    padding-top:0px;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    padding-bottom: -30%;
+    
+
+    /*height: 820px;
+    background: rgba(0,0,0,0.73);*/
+  }
+  h5{
+    color:white;
+    margin-top:2%;
+    font-size: 300%;
+    margin-left: 15%;
+
+   
+  
+  
+  
+  letter-spacing: 1.5px;
+  font-weight: 100;
+  }
+
+
+  .fa-address-card
+  {
+    font-size:50px;
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 3%;
+  }
+  .m
+  {
+  	margin-top:25px;
+  }
+
+  .row
+  {
+  	margin-left: -15%;
+
+
+  }
+
+
+</style>
+
+<div class='container-fluid' align="center">
+      <div class='row'>
+            
+            <div class='col-md-12'>
+            <h5>Shipping Address</h5>
+            <div class="m">
+
+     <form method='POST' action='{% if action_url %}{{ action_url }}{% else %}{% url "login" %}{% endif %}'> 
+	{% csrf_token %}
+    {% if next_url %}
+    <input type='hidden' name='next' value='{{ next_url }}' />
+    {% endif %}
+
+    {% if address_type %}
+    <input type='hidden' name='address_type' value='{{ address_type }}' />
+    {% endif %}
+  {{ form }}
+  <button type='submit' class='btn btn-warning'>Submit</button>
+</form>
+</div>
+</div>
+		</div>
+	</div>
+
+
+
+
+
+

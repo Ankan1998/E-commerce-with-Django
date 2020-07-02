@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+{% url 'cart:home' as cart_url %}
+{% url 'contact' as contact_url %}
+{% url 'products:list' as product_list_url %}
+
+<style type="text/css">
+    
+body{
+    background-color: black;
+
+}
+    h4{
+        color:black;
+  
+  font-size: 350%;
+  margin-top: 10px;
+  
+  letter-spacing: 2px;
+  font-weight: 100;
+  text-shadow: 0px 4px 6px rgba(65,125,90,0.9);
+
+    }
+    h5{
+         font: 100 35px/1.5 'Pacifico', Helvetica, sans-serif;
+         color:green;
+         margin-bottom: 10px;
+    }
+
+    .col-4
+    {
+        margin-left: -12%;
+        margin-top: 3%;
+    }
+
+
+    .col-6
+    {
+        margin-top: 3.3%;
+        margin-left:10%;
+        background-image: url("{% static 'img/bgrnd1.jpg' %} ") ;
+        padding: 20px 0px 35px 50px;
+
+    }
+
+    .cv
+    {
+        width:350px;
+        height:450px;
+        margin-top: 15%;
+        /*box-shadow: 0px 2px 6px 3px rgba(0,0,0,0.4);*/
+        box-shadow: 0 6px 10px 6px rgba(255,255,255,0.4);
+        
+    }
+    .xc{
+        font-size: 40px;
+        color:#455A64;
+        margin-bottom: 30px;
+    }
+    h6
+    {
+        font-size: 50px;
+        color: #18FFFF;
+        text-align: justify-all;
+        font-weight: 300;
+        margin-left: 25px;
+
+
+    }
+    .vb
+    {
+        font-size: 25px;
+        align-content: center;
+        margin-top: 4%;
+    }
+    textarea
+    {
+        font-family: Pacifico;
+        resize:none;
+    }
+    .col-2
+    {
+        margin-top: 3.7%;
+        margin-left: 11%;
+        margin-right:-15%;
+        /*background-color: grey;*/
+        padding-left:27px;
+        padding-top: 5px;
+
+       /* opacity:0.6;*/
+       
+        
+
+       
+    }
+
+    .bm
+    {
+        font-size: 80px;
+        color:white;
+        margin-bottom: 5%;
+        margin-left:10px;
+        
+    }
+    
+    #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.6;
+}
+
+    
+</style>
+<video autoplay muted loop id="myVideo">
+  <source src="{% static 'img/clothing.mp4' %}" type="video/mp4">
+</video>
+
+
+    <div class='row'>
+        <div class='col-4'>
+
+                {% if object.image %}
+                <!--<div class="mb-3" style="min-width: 640px;" style="min-height:600px;">-->        
+                <img src='{{ object.image.url }}' class="cv" alt="image">
+            </div>
+                        
+                            
+                        <div class="col-6">
+                            
+                                <h4 class="">{{ object.title }}</h4>
+                                <h5 class="">Price: $ {{ object.price }}</h5>
+                                <i class="fa fa-truck xc"></i> <b>Fast Delivery</b>
+                                <i class="fa fa-check-circle xc"></i> <b>Verified Product</b><br>
+
+                                <textarea readonly id="w3mission" rows="8" cols="50">{{ object.description }}</textarea>
+
+                {% endif %}
+        
+        <div class="btn btn-outline-dark vb">
+            {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+
+        </div>
+</div>
+<div class="col-2">
+    
+<a class="bm" href="{{ cart_url }}"> <i class="fa fa-shopping-cart bm"></i></a>
+<h6> OR</h6>
+
+<a href="{{ contact_url }}" class="btn btn-warning btn-lg {% if request.path == contact_url %}active{% endif %} my-5" ><b>FEEDBACK</b></a>
+
+<h6> OR </h6>
+<a href="{{ product_list_url }}" class="btn btn-danger btn-lg animated tada {% if request.path == product_list_url %}active{% endif %} my-5"><b>PRODUCTS</b></a>
+      
+
+</div>
+</div>
+</div>
+
+
+
+
+<!--{% endblock %}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src='{{ object.image.url }}' class="card-img" alt="image">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ instance.title }}</h5>
+        <p class="card-text">{{ object.price }}</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+-->

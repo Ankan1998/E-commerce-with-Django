@@ -1,0 +1,110 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+<style type="text/css">
+  .col-4
+  {
+    margin-right:40%;
+  }
+
+
+h5{
+  font-family: 'Pacifico';
+  color:black;
+  position:absolute;
+  font-size: 300%;
+  
+  letter-spacing: 4px;
+  font-weight: 100;
+
+  text-shadow: 0 8px 16px rgba(0,0,0,0.9);
+
+  margin-bottom:10%;
+
+
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 0px 10px 5px rgba(0,0,0,0.7);
+  transition: 1s;
+  padding: 5px 5px 5px 5px;
+  text-align: justify;
+  position: relative;
+  min-height: 75px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 28px 42px 0 rgba(0,0,0,0.2);
+}
+
+.vxc
+{
+  font: 100 30px/1.5 'Pacifico', Helvetica, sans-serif;
+  color: black;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.1), 2px 2px 1px rgba(0,0,0,0.5);
+  text-align: left;
+}
+
+p
+{
+  font: 400 22px/1.1 'Bangers';
+  letter-spacing: 7px;
+
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+ 
+  
+</style>
+
+
+
+
+
+
+
+  <div class="col-4">
+<div class="card d-flex" style="width: 16rem;" style='min-height: 125px;'>
+  {% if instance.image %}
+    <a href="{{ instance.get_absolute_url }}"><img class="card-img-top" src="{{ instance.image.url }}" alt="{{ instance.title}} logo"></a>
+    {% endif %}
+  <div class="card-body">
+    <h4 class="vxc">{{ instance.title }}</h4>
+    <p class="card-text"><b>${{ instance.price }}</b></p>
+    <a href="{{ instance.get_absolute_url }}" class="btn btn-success ">VIEW ME</a>
+   <!--  <a href="{% url 'products:detail' slug=instance.slug  %}" class="btn btn-warning">URL shortcut</a> -->
+  </div>
+</div>
+</div>
+
+
+  
+
+<!--<div class="card" style="width: 15rem;">
+  {% if instance.image %}
+    <a href="{{ instance.get_absolute_url }}">
+    	<img class="" src="{{ instance.image.url }}" alt="{{ instance.title}} logo" width="227" height="170">
+    </a>
+    {% endif %}
+  <div class="body">
+    <h4 class="vxc">{{ instance.title }}</h4>
+    
+    <p class=""><b>${{ instance.price }}</b></p>
+    <a href="{{ instance.get_absolute_url }}" class="btn btn-success">VIEW ME</a>-->
+   <!--  <a href="{% url 'products:detail' slug=instance.slug  %}" class="btn btn-warning">URL shortcut</a> -->
+ <!--</div>
+  </div>
+</div>
+</div>-->
+{% endblock %}
+

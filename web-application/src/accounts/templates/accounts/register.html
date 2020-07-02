@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+
+  body{
+    /*background-image:url("{% static 'img/Signup.jpeg' %} ");*/
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: center-left;
+    background-color: white;
+  }
+
+.form-control
+  {
+    background: transparent;
+    border-radius:0px;
+    border:0px;
+    border-bottom: 2px solid lightblue;
+    font-size:21px;
+    margin-top: 35px;
+    padding: 0px;
+    color:white;
+    line-height: 2;
+  }
+
+  .btn-danger
+  {
+    margin-top: 20px;
+    font-size: 21px;
+    width:200px;
+    
+  }
+
+  .animated
+  {
+    animation-duration: 2.2s;
+  }
+
+  .col-md-8
+  {
+    box-shadow: -1px 1px 50px 10px grey;
+    padding-top: 20px;
+
+
+    
+    margin-top: 35px;
+    margin-bottom: 35px;
+    height: 650px;
+    /*border-radius: 80px 80px 0px 80px;*/
+    background: rgba(0,0,0,0.65);
+
+
+
+    /*animation-name: SideRight;
+    animation-duration: 2s;*/
+
+  }
+
+  .fa-user-plus
+  {
+    font-size:45px;
+    color:white;
+    margin-top: 5px;
+    margin-left: 85%;
+
+    /*animation-name: UpRight;
+    animation-duration: 5s;*/
+  }
+
+  h5{
+    color:white;
+    position:absolute;
+    font-size: 300%;
+    letter-spacing: 2px;
+    font-weight: 100;
+
+    
+  }
+
+  @keyframes UpRight {
+  0%{
+    opacity:0;
+    transform:translate3d(-100px,-50px);
+    
+    
+    
+
+  }
+
+  
+
+  60%{
+    transform: translateY(60px);
+
+
+  }
+  
+  100%{
+    opacity:1;
+    transform: translate3d(50px,100px);
+
+  }
+  
+}
+
+  @keyframes SideRight {
+  0%{
+    opacity:0;
+    transform:translate3d(25px,-50px)
+    
+    
+    
+
+  }
+
+  
+
+  60%{
+    transform: translateY(-60px);
+
+
+  }
+  
+  100%{
+    opacity:1;
+    transform: translate3d(50px,100px);
+
+  }
+  
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.8;
+}
+
+</style>
+
+<video autoplay muted loop id="myVideo">
+  <source src="{% static 'img/sale.mp4' %}" type="video/mp4">
+</video>
+
+<div class='container' align="center">
+      <div class='row'>
+        <div class='col'>
+        	<p>{{ content }}</p>
+            
+            <div class='col-md-8 col-12 animated bounceInRight'>
+              <h5 align="center" class="animated fadeInUp">SIGN-UP</h5>
+              <div class="container">
+              <i class="fa fa-user-plus animated bounceInDown"></i>            
+            </div>
+    <form method='POST'> {% csrf_token %}
+      {{ form}}
+      <hr>
+      <button type='submit' class='btn btn-danger'>SUBMIT</button>
+    </form>
+    		</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

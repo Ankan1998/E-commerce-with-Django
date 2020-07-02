@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+  body{
+    background-color: black;
+    background-size:cover;
+    background-attachment:fixed;
+
+  /*filter: blur(8px);
+  -webkit-filter: blur(8px);
+  */
+
+  }
+
+
+  h6
+  {
+    font-size:300%;
+    color:white;
+    margin-top: 40%;
+    font-weight: 150;
+  }
+
+  .form-control
+  {
+    background: transparent;
+    border-radius:0px;
+    border:0px;
+    border-bottom: 2px solid lightgreen;
+    font-size:21px;
+    margin-top: 10px;
+
+    padding: 0px;
+    color:white;
+    line-height: 1.5;
+
+  }
+
+  p
+  {
+    font-size: 17px;
+    color: white;
+  }
+
+  .col-md-5
+  {
+    box-shadow: -1px 1px 50px 10px grey;
+    /*border-radius: 0px 100px 0px 100px;*/
+    padding-top:15px;
+    margin-top: 14px;
+    margin-bottom: 0px;
+
+    height: 710px;
+    background: rgba(0,0,0,0.73);
+  }
+
+  .btn-info
+  {
+    margin-top: 20px;
+    margin-bottom: 90px;
+    font-size: 21px;
+    width:200px;
+    margin-left: 25%;
+    
+  }
+
+
+  .animated
+  {
+    animation-duration: 2.7s;
+  }
+  h5{
+    color:white;
+    position:absolute;
+    font-size: 300%;
+    
+   
+  
+  
+  
+  letter-spacing: 0.5px;
+  font-weight: 100;
+  }
+
+
+  .fa-envelope
+  {
+    font-size:50px;
+    color:white;
+    margin-top: 3px;
+    
+    margin-left: 85%;
+  }
+
+  .z1
+  {
+    font-size:25px;
+    color:white;
+    margin-top: 20px;
+    padding-right: 20px;
+    
+    
+  }
+    
+  #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.4;
+
+
+</style>
+
+<video autoplay muted loop id="myVideo">
+  <source src="{% static 'img/outdr.mp4' %}" type="video/mp4">
+</video>
+
+    
+      <div class='container'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <h6 class="text-left animated bounceInUp "> Contact Details</h6>
+            <p class="text-left animated bounceInDown ">
+              <i class="fa fa-phone z1"></i> +91-9879879XX - Call us<br>
+              <i class="fa fa-print z1"></i> +91-9876579XX - Fax us<br>
+              <i class="fa fa-paper-plane z1"></i> +91-6669879XX - Telegram<br>
+              <i class="fa fa-search-plus z1"></i> search <br>
+              <i class="fa fa-info-circle z1"></i>Information<br>
+          </p>
+        </div>
+        <div class='col-md-3 col-sm-4'>
+        </div>
+              
+
+            <div class='col-md-5 animated bounceInLeft'>
+             
+              <h5 align="center " class="animated flip">CONTACT US</h5>
+               <i class="fa fa-envelope"></i>
+            <form method='POST'> {% csrf_token %}
+              {{ form}}
+              <hr>
+              <button type='submit' class='btn btn-info'>Submit</button>
+            </form>
+
+
+            <!-- <form method='POST'> {% csrf_token %}
+              <input type='text' class='form-control' placeholder="Name" name='fullname'>
+              <input type='email' class='form-control' placeholder="Email" name='email'>
+              <textarea name='content' class='form-control' placeholder="Your content"></textarea>
+              <button type='submit' class='btn btn-default'>Submit</button>
+            </form> -->
+            </div>
+        
+      </div>
+      </div>
+    
+{% endblock %}
+
+
+
+<div class='col-md-4'>
+          <h6 class="text-left animated bounceInUp "> Contact Details</h6>
+            <p class="text-left animated bounceInDown ">
+              <i class="fa fa-phone z1"></i> +91-9879879XX - Call us<br>
+              <i class="fa fa-print z1"></i> +91-9876579XX - Fax us<br>
+              <i class="fa fa-paper-plane z1"></i> +91-6669879XX - Telegram<br>
+              <i class="fa fa-search-plus z1"></i> search <br>
+              <i class="fa fa-info-circle z1"></i>Information<br>
+          </p>
+        </div>

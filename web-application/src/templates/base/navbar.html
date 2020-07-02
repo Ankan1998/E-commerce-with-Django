@@ -1,0 +1,79 @@
+{% url 'home' as home_url %}
+{% url 'contact' as contact_url %}
+{% url 'products:list' as product_list_url %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% url 'register' as register_url %}
+{% url 'cart:home' as cart_url %}
+<style type="text/css">
+
+
+</style>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark py-0 my-0">
+   <div class='container-fluid'>
+    <a class="navbar-brand" href="{{ home_url }}">
+    <img src="https://icons.iconarchive.com/icons/graphicloads/seo-services/256/ecommerce-cart-icon.png" width="60" height="60" class="d-inline-block align-top" >
+    </a>
+    <div align="left" style="color:white">
+      <em><b>ECOMME</b></em>
+    </div>
+    
+
+  <!--<a class="navbar-brand" href="{{ home_url }}">
+    <img src="C:\Users\Ankan\Desktop\testdrive1\web-application\src\static_my_proj\img\shopping-cart.png" width="20" height="35" class="d-inline-block align-top" alt="">
+    {% if brand_name %} {{brand_name }} {% else %}CFE eCommerce {% endif %} icon of E-commerce 
+  </a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item {% if request.path == home_url %}active{% endif %} px-2">
+        <a class="nav-link" href="{{ home_url }}"><b>HOME</b><span class="sr-only">(current)</span></a>
+      
+      <li class="nav-item {% if request.path == product_list_url %}active{% endif %} px-2">
+        <a class="nav-link" href="{{ product_list_url }}"><b>PRODUCT</b></a>
+      </li>
+
+      </li>
+      <li class="nav-item {% if request.path == contact_url %}active{% endif %} px-2">
+        <a class="nav-link" href="{{ contact_url }}"><b>CONTACT</b></a>
+      </li>
+
+
+      {% if request.user.is_authenticated %}
+       <li class="nav-item {% if request.path == logout_url %}active{% endif %} px-2">
+        <a class="nav-link" href="{{ logout_url }}"><b>SIGN-OUT</b></a>
+      </li>
+      {% else %}
+       <li class="nav-item {% if request.path == register_url %}active{% endif %} px-2">
+        <a class="nav-link" href="{{ register_url }}"><b>SIGN-UP</b></a>
+      </li>
+      <li class="nav-item {% if request.path == login_url %}active{% endif %} px-2">
+        <a class="nav-link" href="{{ login_url }}"><b>SIGN-IN</b></a>
+      </li>
+      {% endif %}
+      <li class="nav-item {% if request.path == cart_url %}active{% endif %} px-2">
+        <a class="nav-link" href="{{ cart_url }}"> {{ request.session.cart_items }} <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+      </li>
+
+       <!--  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+
+    </ul>
+    {% include 'search/snippets/search-form.html' %}
+  </div>
+</div>
+</nav>
