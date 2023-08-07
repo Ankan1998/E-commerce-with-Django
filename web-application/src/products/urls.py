@@ -1,4 +1,5 @@
-from django.conf.urls import url
+from django.urls import path, include
+
 
 from .views import (
         ProductListView, 
@@ -6,7 +7,7 @@ from .views import (
         )
 
 urlpatterns = [
-    url(r'^$', ProductListView.as_view(), name='list'),
-    url(r'^(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view(), name='detail'),
+    path(r'^$', ProductListView.as_view(), name='list'),
+    path(r'^(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view(), name='detail'),
 ]
 

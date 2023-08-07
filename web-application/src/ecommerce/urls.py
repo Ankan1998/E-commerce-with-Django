@@ -17,7 +17,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 
-from django.conf.urls import url, include
+from django.urls import path, include
+
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView
@@ -28,20 +29,20 @@ from addresses.views import checkout_address_create_view, checkout_address_reuse
 from .views import home_page, about_page, contact_page
 
 urlpatterns = [
-    url(r'^$', home_page, name='home'),
-    url(r'^about/$', about_page, name='about'),
-    url(r'^contact/$', contact_page, name='contact'),
-    url(r'^login/$', login_page, name='login'),
-    url(r'^checkout/address/create/$', checkout_address_create_view, name='checkout_address_create'),
-    url(r'^checkout/address/reuse/$', checkout_address_reuse_view, name='checkout_address_reuse'),
-    url(r'^register/guest/$', guest_register_view, name='guest_register'),
-    url(r'^logout/$', LogoutView.as_view(), name='logout'),
-    url(r'^cart/', include("carts.urls", namespace='cart')),
-    url(r'^register/$', register_page, name='register'),
-    url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
-    url(r'^products/', include("products.urls", namespace='products')),
-    url(r'^search/', include("search.urls", namespace='search')),
-    url(r'^admin/', admin.site.urls),
+    path('about/', about_page, name='about'),
+    path('contact/', contact_page, name='contact'),
+    path('', home_page, name='home'),
+    path('login/', login_page, name='login'),
+    path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
+    path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
+    path('register/guest/', guest_register_view, name='guest_register'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('cart/', include(("carts.urls","carts"), namespace='cart')),
+    path('register/', register_page, name='register'),
+    path('bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
+    path('products/', include(("products.urls","products"), namespace='products')),
+    path('search/', include(("search.urls","search"), namespace='search')),
+    path('admin/', admin.site.urls),
 ]
 
 

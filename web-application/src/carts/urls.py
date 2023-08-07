@@ -1,4 +1,5 @@
-from django.conf.urls import url
+from django.urls import path, include
+
 
 from .views import (
     cart_home,
@@ -8,9 +9,9 @@ from .views import (
 )
 
 urlpatterns = [
-    url(r'^$', cart_home, name='home'),
-    url(r'^checkout/$', checkout_home, name='checkout'),
-    url(r'^update/$', cart_update, name='update'),
-    url(r'^checkout/success$', checkout_done_view, name='success'),
+    path(r'^$', cart_home, name='home'),
+    path(r'^checkout/$', checkout_home, name='checkout'),
+    path(r'^update/$', cart_update, name='update'),
+    path(r'^checkout/success$', checkout_done_view, name='success'),
 
 ]

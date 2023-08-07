@@ -1,7 +1,8 @@
 from django.contrib.auth import authenticate, login, get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
+
 
 
 from .forms import LoginForm, RegisterForm, GuestForm
@@ -20,7 +21,7 @@ def guest_register_view(request):
         email       = form.cleaned_data.get("email")
         new_guest_email = GuestEmail.objects.create(email=email)
         request.session['guest_email_id'] = new_guest_email.id
-        if is_safe_url(redirect_path, request.get_host()):
+        if url_has_allowed_host_and_scheme(redirect_path, request.get_host()):
             return redirect(redirect_path)
         else:
             return redirect("/register/")
@@ -45,7 +46,7 @@ def login_page(request):
                 del request.session['guest_email_id']
             except:
                 pass
-            if is_safe_url(redirect_path, request.get_host()):
+            if url_has_allowed_host_and_scheme(redirect_path, request.get_host()):
                 return redirect(redirect_path)
             else:
                 return redirect("/")
